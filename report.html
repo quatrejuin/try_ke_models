@@ -1,0 +1,875 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>report</title>
+<!-- 2018-05-10 Thu 12:02 -->
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="generator" content="Org-mode" />
+<meta  name="author" content="Jason Wu" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { color: green; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  pre.src-sh:before    { content: 'sh'; }
+  pre.src-bash:before  { content: 'sh'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-R:before     { content: 'R'; }
+  pre.src-perl:before  { content: 'Perl'; }
+  pre.src-java:before  { content: 'Java'; }
+  pre.src-sql:before   { content: 'SQL'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.right  { text-align: center;  }
+  th.left   { text-align: center;   }
+  th.center { text-align: center; }
+  td.right  { text-align: right;  }
+  td.left   { text-align: left;   }
+  td.center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara:nth-child(2) { display: inline; }
+  .footpara { display: block; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2013 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">report</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">1. Introduction</a></li>
+<li><a href="#sec-2">2. Knowledge Bases</a></li>
+<li><a href="#sec-3">3. Benchmark</a>
+<ul>
+<li><a href="#sec-3-1">3.1. TransE + FB15K</a></li>
+<li><a href="#sec-3-2">3.2. DistMult + FB15K</a></li>
+<li><a href="#sec-3-3">3.3. TransE + WN18</a></li>
+</ul>
+</li>
+<li><a href="#sec-4">4. Experiment</a>
+<ul>
+<li><a href="#sec-4-1">4.1. TransE + DeFIE</a></li>
+<li><a href="#sec-4-2">4.2. DistMult + DeFIE</a></li>
+<li><a href="#sec-4-3">4.3. TransE + RV15M</a>
+<ul>
+<li><a href="#sec-4-3-1">4.3.1. Convert BabelNet Synset id to pure number id</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1"><span class="section-number-2">1</span> Introduction</h2>
+</div>
+
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2"><span class="section-number-2">2</span> Knowledge Bases</h2>
+</div>
+
+<div id="outline-container-sec-3" class="outline-2">
+<h2 id="sec-3"><span class="section-number-2">3</span> Benchmark</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+./benchmarks/FB15K
+</p>
+</div>
+
+<div id="outline-container-sec-3-1" class="outline-3">
+<h3 id="sec-3-1"><span class="section-number-3">3.1</span> TransE + FB15K</h3>
+<div class="outline-text-3" id="text-3-1">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="left" />
+
+<col  class="right" />
+
+<col  class="right" />
+
+<col  class="right" />
+
+<col  class="right" />
+
+<col  class="right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="left">metric:</th>
+<th scope="col" class="right">MRR</th>
+<th scope="col" class="right">MR</th>
+<th scope="col" class="right">hit@10</th>
+<th scope="col" class="right">hit@3</th>
+<th scope="col" class="right">hit@1</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="left">l(raw):</td>
+<td class="right">0.219675</td>
+<td class="right">271.420105</td>
+<td class="right">0.463662</td>
+<td class="right">0.252713</td>
+<td class="right">0.107565</td>
+</tr>
+
+<tr>
+<td class="left">r(raw):</td>
+<td class="right">0.275522</td>
+<td class="right">170.011887</td>
+<td class="right">0.543668</td>
+<td class="right">0.317906</td>
+<td class="right">0.149938</td>
+</tr>
+
+<tr>
+<td class="left">averaged(raw):</td>
+<td class="right">0.247599</td>
+<td class="right">220.716003</td>
+<td class="right">0.503665</td>
+<td class="right">0.285309</td>
+<td class="right">0.128752</td>
+</tr>
+
+<tr>
+<td class="left">&#xa0;</td>
+<td class="right">&#xa0;</td>
+<td class="right">&#xa0;</td>
+<td class="right">&#xa0;</td>
+<td class="right">&#xa0;</td>
+<td class="right">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="left">l(filter):</td>
+<td class="right">0.468893</td>
+<td class="right">86.971359</td>
+<td class="right">0.727582</td>
+<td class="right">0.555382</td>
+<td class="right">0.327098</td>
+</tr>
+
+<tr>
+<td class="left">r(filter):</td>
+<td class="right">0.519742</td>
+<td class="right">55.335835</td>
+<td class="right">0.783599</td>
+<td class="right">0.613211</td>
+<td class="right">0.373804</td>
+</tr>
+
+<tr>
+<td class="left">averaged(filter):</td>
+<td class="right">0.494317</td>
+<td class="right">71.153595</td>
+<td class="right">0.755591</td>
+<td class="right">0.584297</td>
+<td class="right">0.350451</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+But we noticed there is a <i>type_constrain.txt</i> file who constrain the relation types, which is not necessary. So we tried the <i>type_constrain.txt</i> with 10 relations and without relation. It shows that this file doesn't affect the performance significantly.
+</p>
+
+<ul class="org-ul">
+<li>With 10 relations:
+</li>
+</ul>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="left" />
+
+<col  class="right" />
+
+<col  class="right" />
+
+<col  class="right" />
+
+<col  class="right" />
+
+<col  class="right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="left">metric:</th>
+<th scope="col" class="right">MRR</th>
+<th scope="col" class="right">MR</th>
+<th scope="col" class="right">hit@10</th>
+<th scope="col" class="right">hit@3</th>
+<th scope="col" class="right">hit@1</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="left">l(raw):</td>
+<td class="right">0.220640</td>
+<td class="right">271.521790</td>
+<td class="right">0.464356</td>
+<td class="right">0.253932</td>
+<td class="right">0.108073</td>
+</tr>
+
+<tr>
+<td class="left">r(raw):</td>
+<td class="right">0.275924</td>
+<td class="right">168.646606</td>
+<td class="right">0.545158</td>
+<td class="right">0.318786</td>
+<td class="right">0.150108</td>
+</tr>
+
+<tr>
+<td class="left">averaged(raw):</td>
+<td class="right">0.248282</td>
+<td class="right">220.084198</td>
+<td class="right">0.504757</td>
+<td class="right">0.286359</td>
+<td class="right">0.129090</td>
+</tr>
+
+<tr>
+<td class="left">&#xa0;</td>
+<td class="right">&#xa0;</td>
+<td class="right">&#xa0;</td>
+<td class="right">&#xa0;</td>
+<td class="right">&#xa0;</td>
+<td class="right">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="left">l(filter):</td>
+<td class="right">0.469552</td>
+<td class="right">86.804474</td>
+<td class="right">0.727023</td>
+<td class="right">0.556009</td>
+<td class="right">0.328537</td>
+</tr>
+
+<tr>
+<td class="left">r(filter):</td>
+<td class="right">0.518877</td>
+<td class="right">53.832962</td>
+<td class="right">0.783735</td>
+<td class="right">0.613787</td>
+<td class="right">0.371028</td>
+</tr>
+
+<tr>
+<td class="left">averaged(filter):</td>
+<td class="right">0.494214</td>
+<td class="right">70.318718</td>
+<td class="right">0.755379</td>
+<td class="right">0.584898</td>
+<td class="right">0.349782</td>
+</tr>
+</tbody>
+</table>
+
+<ul class="org-ul">
+<li>Without relation:
+</li>
+</ul>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="left" />
+
+<col  class="right" />
+
+<col  class="right" />
+
+<col  class="right" />
+
+<col  class="right" />
+
+<col  class="right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="left">metric:</th>
+<th scope="col" class="right">MRR</th>
+<th scope="col" class="right">MR</th>
+<th scope="col" class="right">hit@10</th>
+<th scope="col" class="right">hit@3</th>
+<th scope="col" class="right">hit@1</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="left">l(raw):</td>
+<td class="right">0.220981</td>
+<td class="right">271.891418</td>
+<td class="right">0.463510</td>
+<td class="right">0.253475</td>
+<td class="right">0.109529</td>
+</tr>
+
+<tr>
+<td class="left">r(raw):</td>
+<td class="right">0.276495</td>
+<td class="right">170.500488</td>
+<td class="right">0.543092</td>
+<td class="right">0.317059</td>
+<td class="right">0.152664</td>
+</tr>
+
+<tr>
+<td class="left">averaged(raw):</td>
+<td class="right">0.248738</td>
+<td class="right">221.195953</td>
+<td class="right">0.503301</td>
+<td class="right">0.285267</td>
+<td class="right">0.131096</td>
+</tr>
+
+<tr>
+<td class="left">&#xa0;</td>
+<td class="right">&#xa0;</td>
+<td class="right">&#xa0;</td>
+<td class="right">&#xa0;</td>
+<td class="right">&#xa0;</td>
+<td class="right">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="left">l(filter):</td>
+<td class="right">0.469689</td>
+<td class="right">87.208374</td>
+<td class="right">0.727311</td>
+<td class="right">0.556212</td>
+<td class="right">0.328131</td>
+</tr>
+
+<tr>
+<td class="left">r(filter):</td>
+<td class="right">0.518711</td>
+<td class="right">55.652824</td>
+<td class="right">0.782211</td>
+<td class="right">0.612399</td>
+<td class="right">0.372264</td>
+</tr>
+
+<tr>
+<td class="left">averaged(filter):</td>
+<td class="right">0.494200</td>
+<td class="right">71.430603</td>
+<td class="right">0.754761</td>
+<td class="right">0.584305</td>
+<td class="right">0.350197</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-sec-3-2" class="outline-3">
+<h3 id="sec-3-2"><span class="section-number-3">3.2</span> DistMult + FB15K</h3>
+<div class="outline-text-3" id="text-3-2">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="left" />
+
+<col  class="right" />
+
+<col  class="right" />
+
+<col  class="right" />
+
+<col  class="right" />
+
+<col  class="right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="left">metric:</th>
+<th scope="col" class="right">MRR</th>
+<th scope="col" class="right">MR</th>
+<th scope="col" class="right">hit@10</th>
+<th scope="col" class="right">hit@3</th>
+<th scope="col" class="right">hit@1</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="left">l(raw):</td>
+<td class="right">0.195751</td>
+<td class="right">346.692627</td>
+<td class="right">0.430668</td>
+<td class="right">0.216824</td>
+<td class="right">0.092262</td>
+</tr>
+
+<tr>
+<td class="left">r(raw):</td>
+<td class="right">0.217857</td>
+<td class="right">279.881104</td>
+<td class="right">0.472161</td>
+<td class="right">0.239949</td>
+<td class="right">0.105940</td>
+</tr>
+
+<tr>
+<td class="left">averaged(raw):</td>
+<td class="right">0.206804</td>
+<td class="right">313.286865</td>
+<td class="right">0.451414</td>
+<td class="right">0.228386</td>
+<td class="right">0.099101</td>
+</tr>
+
+<tr>
+<td class="left">l(filter):</td>
+<td class="right">0.413781</td>
+<td class="right">157.688263</td>
+<td class="right">0.699193</td>
+<td class="right">0.495624</td>
+<td class="right">0.267542</td>
+</tr>
+
+<tr>
+<td class="left">r(filter):</td>
+<td class="right">0.432955</td>
+<td class="right">162.264877</td>
+<td class="right">0.724247</td>
+<td class="right">0.517276</td>
+<td class="right">0.283439</td>
+</tr>
+
+<tr>
+<td class="left">averaged(filter):</td>
+<td class="right">0.423368</td>
+<td class="right">159.976562</td>
+<td class="right">0.711720</td>
+<td class="right">0.506450</td>
+<td class="right">0.275491</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+<div id="outline-container-sec-3-3" class="outline-3">
+<h3 id="sec-3-3"><span class="section-number-3">3.3</span> TransE + WN18</h3>
+<div class="outline-text-3" id="text-3-3">
+<p>
+Overall results:
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="left" />
+
+<col  class="right" />
+
+<col  class="right" />
+
+<col  class="right" />
+
+<col  class="right" />
+
+<col  class="right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="left">metric:</th>
+<th scope="col" class="right">MRR</th>
+<th scope="col" class="right">MR</th>
+<th scope="col" class="right">hit@10</th>
+<th scope="col" class="right">hit@3</th>
+<th scope="col" class="right">hit@1</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="left">l(raw):</td>
+<td class="right">0.334761</td>
+<td class="right">532.191223</td>
+<td class="right">0.6956</td>
+<td class="right">0.4654</td>
+<td class="right">0.1354</td>
+</tr>
+
+<tr>
+<td class="left">r(raw):</td>
+<td class="right">0.368517</td>
+<td class="right">538.517212</td>
+<td class="right">0.7064</td>
+<td class="right">0.4982</td>
+<td class="right">0.1798</td>
+</tr>
+
+<tr>
+<td class="left">averaged(raw):</td>
+<td class="right">0.351639</td>
+<td class="right">535.354248</td>
+<td class="right">0.701</td>
+<td class="right">0.4818</td>
+<td class="right">0.1576</td>
+</tr>
+
+<tr>
+<td class="left">&#xa0;</td>
+<td class="right">&#xa0;</td>
+<td class="right">&#xa0;</td>
+<td class="right">&#xa0;</td>
+<td class="right">&#xa0;</td>
+<td class="right">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="left">l(filter):</td>
+<td class="right">0.467749</td>
+<td class="right">514.505005</td>
+<td class="right">0.802</td>
+<td class="right">0.6802</td>
+<td class="right">0.2326</td>
+</tr>
+
+<tr>
+<td class="left">r(filter):</td>
+<td class="right">0.480858</td>
+<td class="right">522.675171</td>
+<td class="right">0.8052</td>
+<td class="right">0.6876</td>
+<td class="right">0.2516</td>
+</tr>
+
+<tr>
+<td class="left">averaged(filter):</td>
+<td class="right">0.474303</td>
+<td class="right">518.590088</td>
+<td class="right">0.8036</td>
+<td class="right">0.6839</td>
+<td class="right">0.2421</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-4" class="outline-2">
+<h2 id="sec-4"><span class="section-number-2">4</span> Experiment</h2>
+<div class="outline-text-2" id="text-4">
+</div><div id="outline-container-sec-4-1" class="outline-3">
+<h3 id="sec-4-1"><span class="section-number-3">4.1</span> TransE + DeFIE</h3>
+<div class="outline-text-3" id="text-4-1">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="left" />
+
+<col  class="left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="left">&#xa0;</th>
+<th scope="col" class="left">Time</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="left">Training</td>
+<td class="left">1289 mins</td>
+</tr>
+
+<tr>
+<td class="left">Testing</td>
+<td class="left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+<div id="outline-container-sec-4-2" class="outline-3">
+<h3 id="sec-4-2"><span class="section-number-3">4.2</span> DistMult + DeFIE</h3>
+<div class="outline-text-3" id="text-4-2">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="left" />
+
+<col  class="left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="left">&#xa0;</th>
+<th scope="col" class="left">Time</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="left">Training</td>
+<td class="left">2272 mins</td>
+</tr>
+
+<tr>
+<td class="left">Testing</td>
+<td class="left">120 mins</td>
+</tr>
+</tbody>
+</table>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="left" />
+
+<col  class="right" />
+
+<col  class="right" />
+
+<col  class="right" />
+
+<col  class="right" />
+
+<col  class="right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="left">metric:</th>
+<th scope="col" class="right">MRR</th>
+<th scope="col" class="right">MR</th>
+<th scope="col" class="right">hit@10</th>
+<th scope="col" class="right">hit@3</th>
+<th scope="col" class="right">hit@1</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="left">l(raw):</td>
+<td class="right">0.014776</td>
+<td class="right">310145.968750</td>
+<td class="right">0.024000</td>
+<td class="right">0.015400</td>
+<td class="right">0.008400</td>
+</tr>
+
+<tr>
+<td class="left">r(raw):</td>
+<td class="right">0.027398</td>
+<td class="right">427602.656250</td>
+<td class="right">0.047000</td>
+<td class="right">0.028800</td>
+<td class="right">0.015600</td>
+</tr>
+
+<tr>
+<td class="left">averaged(raw):</td>
+<td class="right">0.021087</td>
+<td class="right">368874.312500</td>
+<td class="right">0.035500</td>
+<td class="right">0.022100</td>
+<td class="right">0.012000</td>
+</tr>
+
+<tr>
+<td class="left">&#xa0;</td>
+<td class="right">&#xa0;</td>
+<td class="right">&#xa0;</td>
+<td class="right">&#xa0;</td>
+<td class="right">&#xa0;</td>
+<td class="right">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="left">l(filter):</td>
+<td class="right">0.015266</td>
+<td class="right">308576.718750</td>
+<td class="right">0.024600</td>
+<td class="right">0.015800</td>
+<td class="right">0.008600</td>
+</tr>
+
+<tr>
+<td class="left">r(filter):</td>
+<td class="right">0.029953</td>
+<td class="right">427588.312500</td>
+<td class="right">0.048400</td>
+<td class="right">0.030200</td>
+<td class="right">0.019000</td>
+</tr>
+
+<tr>
+<td class="left">averaged(filter):</td>
+<td class="right">0.022609</td>
+<td class="right">368082.500000</td>
+<td class="right">0.036500</td>
+<td class="right">0.023000</td>
+<td class="right">0.013800</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-sec-4-3" class="outline-3">
+<h3 id="sec-4-3"><span class="section-number-3">4.3</span> TransE + RV15M</h3>
+<div class="outline-text-3" id="text-4-3">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="left" />
+
+<col  class="left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="left">&#xa0;</th>
+<th scope="col" class="left">Time</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="left">Training</td>
+<td class="left">821 mins</td>
+</tr>
+
+<tr>
+<td class="left">Testing</td>
+<td class="left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+
+<div id="outline-container-sec-4-3-1" class="outline-4">
+<h4 id="sec-4-3-1"><span class="section-number-4">4.3.1</span> Convert BabelNet Synset id to pure number id</h4>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Jason Wu</p>
+<p class="date">Created: 2018-05-10 Thu 12:02</p>
+<p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 25.3.1 (<a href="http://orgmode.org">Org</a> mode 8.2.10)</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
