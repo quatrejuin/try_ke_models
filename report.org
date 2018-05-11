@@ -8,6 +8,10 @@
 ./benchmarks/FB15K
 
 ** TransE + FB15K
+|          | Time    |
+|----------+---------|
+| Training | 40 mins |
+| Testing  | 12 mins |
 
 | metric:           |      MRR |         MR |   hit@10 |    hit@3 |    hit@1 |
 |-------------------+----------+------------+----------+----------+----------|
@@ -45,7 +49,29 @@ But we noticed there is a [[type_constrain.txt]] file who constrain the relation
 | r(filter):        | 0.518711 |  55.652824 | 0.782211 | 0.612399 | 0.372264 |
 | averaged(filter): | 0.494200 |  71.430603 | 0.754761 | 0.584305 | 0.350197 |
 
+** TransH + FB15K
+|          | Time     |
+|----------+----------|
+| Training | 100 mins |
+| Testing  | 49 mins  | 
+
+| metric:           |      MRR |         MR |   hit@10 |    hit@3 |    hit@1 |
+|-------------------+----------+------------+----------+----------+----------|
+| l(raw):           | 0.220794 | 277.884369 | 0.464509 | 0.254220 | 0.108700 |
+| r(raw):           | 0.276842 | 173.669571 | 0.545208 | 0.316568 | 0.152478 |
+| averaged(raw):    | 0.248818 | 225.776978 | 0.504859 | 0.285394 | 0.130589 |
+|                   |          |            |          |          |          |
+| l(filter):        | 0.471174 |  93.086830 | 0.729851 | 0.557854 | 0.328977 |
+| r(filter):        | 0.521773 |  58.807030 | 0.784581 | 0.615310 | 0.376056 |
+| averaged(filter): | 0.496473 |  75.946930 | 0.757216 | 0.586582 | 0.352516 |
+  
+
 ** DistMult + FB15K
+|          | Time    |
+|----------+---------|
+| Training | 67 mins |
+| Testing  | 18 mins |
+
 
 | metric:           |      MRR |         MR |   hit@10 |    hit@3 |    hit@1 |
 |-------------------+----------+------------+----------+----------+----------|
@@ -59,7 +85,11 @@ But we noticed there is a [[type_constrain.txt]] file who constrain the relation
 
 ** TransE + WN18
 
-Overall results:
+|          | Time    |
+|----------+---------|
+| Training | 15 mins |
+| Testing  | 3 mins  |
+
 
 | metric:           |      MRR |         MR | hit@10 |  hit@3 |  hit@1 |
 |-------------------+----------+------------+--------+--------+--------|
