@@ -3,15 +3,47 @@
 
 * Knowledge Bases
 
-* Benchmark
+* Training and Testing data
+** FB15K
+Input Files Path :./benchmarks/FB15K
+- The total of relations is 1345.
+- The total of entities is 14951.
+- The total of train triples is 483142.
+- The total of test triples is 59071.
+- The total of valid triples is 50000.
 
-./benchmarks/FB15K
+** WN18
+Input Files Path : ./benchmarks/WN18/
+- The total of relations is 18.
+- The total of entities is 40943.
+- The total of train triples is 141442.
+- The total of test triples is 5000.
+- The total of valid triples is 5000.
+  
+** DeFIE
+Input Files Path : ./data/defie/
+- The total of relations is 255881.
+- The total of entities is 2509444.
+- The total of train triples is 16277587.
+- The total of test triples is 10000.
+- The total of valid triples is 10000.
+
+** RV15M
+Input Files Path : ./data/RV15M/
+- The total of relations is 664746.
+- The total of entities is 2263915.
+- The total of train triples is 14708268.
+- The total of test triples is 10000.
+- The total of valid triples is 10000.
+
+* Benchmark
 
 ** TransE + FB15K
 |          | Time    |
 |----------+---------|
 | Training | 40 mins |
 | Testing  | 12 mins |
+
 
 | metric:           |      MRR |         MR |   hit@10 |    hit@3 |    hit@1 |
 |-------------------+----------+------------+----------+----------+----------|
@@ -55,6 +87,7 @@ But we noticed there is a [[type_constrain.txt]] file who constrain the relation
 | Training | 100 mins |
 | Testing  | 49 mins  | 
 
+
 | metric:           |      MRR |         MR |   hit@10 |    hit@3 |    hit@1 |
 |-------------------+----------+------------+----------+----------+----------|
 | l(raw):           | 0.220794 | 277.884369 | 0.464509 | 0.254220 | 0.108700 |
@@ -64,7 +97,7 @@ But we noticed there is a [[type_constrain.txt]] file who constrain the relation
 | l(filter):        | 0.471174 |  93.086830 | 0.729851 | 0.557854 | 0.328977 |
 | r(filter):        | 0.521773 |  58.807030 | 0.784581 | 0.615310 | 0.376056 |
 | averaged(filter): | 0.496473 |  75.946930 | 0.757216 | 0.586582 | 0.352516 |
-  
+
 
 ** DistMult + FB15K
 |          | Time    |
@@ -103,11 +136,23 @@ But we noticed there is a [[type_constrain.txt]] file who constrain the relation
 
 * Experiment
 
+
 ** TransE + DeFIE
 |          | Time      |
 |----------+-----------|
 | Training | 1289 mins |
-| Testing  |           |
+| Testing  | 268 mins  |
+
+
+| metric:           |      MRR |            MR |   hit@10 |    hit@3 |    hit@1 |
+|-------------------+----------+---------------+----------+----------+----------|
+| l(raw):           | 0.026437 | 358470.843750 | 0.047100 | 0.025700 | 0.014700 |
+| r(raw):           | 0.034703 | 177757.765625 | 0.057100 | 0.033900 | 0.019700 |
+| averaged(raw):    | 0.030570 | 268114.312500 | 0.052100 | 0.029800 | 0.017200 |
+|                   |          |               |          |          |          |
+| l(filter):        | 0.028369 | 357141.031250 | 0.051400 | 0.027800 | 0.016000 |
+| r(filter):        | 0.035466 | 177745.671875 | 0.057700 | 0.034900 | 0.020400 |
+| averaged(filter): | 0.031917 | 267443.343750 | 0.054550 | 0.031350 | 0.018200 |
 
 
 ** DistMult + DeFIE
@@ -115,6 +160,7 @@ But we noticed there is a [[type_constrain.txt]] file who constrain the relation
 |----------+-----------|
 | Training | 2272 mins |
 | Testing  | 120 mins  |
+
 
 | metric:           |      MRR |            MR |   hit@10 |    hit@3 |    hit@1 |
 |-------------------+----------+---------------+----------+----------+----------|
@@ -125,12 +171,17 @@ But we noticed there is a [[type_constrain.txt]] file who constrain the relation
 | l(filter):        | 0.015266 | 308576.718750 | 0.024600 | 0.015800 | 0.008600 |
 | r(filter):        | 0.029953 | 427588.312500 | 0.048400 | 0.030200 | 0.019000 |
 | averaged(filter): | 0.022609 | 368082.500000 | 0.036500 | 0.023000 | 0.013800 |
+  
+
+
+*** Convert BabelNet Synset id to pure number id
 
 ** TransE + RV15M
 |          | Time     |
 |----------+----------|
 | Training | 821 mins |
 | Testing  | 225 mins | 
+
 
 | metric:           |      MRR |            MR |   hit@10 |    hit@3 |    hit@1 |
 |-------------------+----------+---------------+----------+----------+----------|
@@ -141,7 +192,3 @@ But we noticed there is a [[type_constrain.txt]] file who constrain the relation
 | l(filter):        | 0.027981 | 304682.968750 | 0.047100 | 0.030800 | 0.015700 |
 | r(filter):        | 0.026511 | 285609.281250 | 0.053000 | 0.028500 | 0.011300 |
 | averaged(filter): | 0.027246 | 295146.125000 | 0.050050 | 0.029650 | 0.013500 |
-  
-
-
-*** Convert BabelNet Synset id to pure number id
