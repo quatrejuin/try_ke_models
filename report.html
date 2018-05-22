@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
 <title>report</title>
-<!-- 2018-05-11 Fri 09:53 -->
+<!-- 2018-05-22 Tue 10:19 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="generator" content="Org-mode" />
 <meta  name="author" content="Jason Wu" />
@@ -163,12 +163,20 @@ for the JavaScript code in this tag.
 <li><a href="#sec-5">5. Experiment</a>
 <ul>
 <li><a href="#sec-5-1">5.1. TransE + DeFIE</a></li>
-<li><a href="#sec-5-2">5.2. DistMult + DeFIE</a>
+<li><a href="#sec-5-2">5.2. DistMult + DeFIE</a></li>
+<li><a href="#sec-5-3">5.3. TransE + RV15M</a>
 <ul>
-<li><a href="#sec-5-2-1">5.2.1. Convert BabelNet Synset id to pure number id</a></li>
+<li><a href="#sec-5-3-1">5.3.1. TransE + RV15M with the relation simplified in test. (if r&lt;=10<sup>5</sup> then r =0)</a></li>
+<li><a href="#sec-5-3-2">5.3.2. TransE + RV15M Clustering (Test Side)</a></li>
 </ul>
 </li>
-<li><a href="#sec-5-3">5.3. TransE + RV15M</a></li>
+</ul>
+</li>
+<li><a href="#sec-6">6. Related work</a>
+<ul>
+<li><a href="#sec-6-1">6.1. Convert BabelNet Synset id to pure number id</a></li>
+<li><a href="#sec-6-2">6.2. OpenKE regroup relations in test</a></li>
+<li><a href="#sec-6-3">6.3. Relation cluster: Convert the relation name set to relation id set</a></li>
 </ul>
 </li>
 </ul>
@@ -808,6 +816,15 @@ But we noticed there is a <i>type_constrain.txt</i> file who constrain the relat
 </tr>
 
 <tr>
+<td class="left">&#xa0;</td>
+<td class="right">&#xa0;</td>
+<td class="right">&#xa0;</td>
+<td class="right">&#xa0;</td>
+<td class="right">&#xa0;</td>
+<td class="right">&#xa0;</td>
+</tr>
+
+<tr>
 <td class="left">l(filter):</td>
 <td class="right">0.413781</td>
 <td class="right">157.688263</td>
@@ -1217,13 +1234,9 @@ But we noticed there is a <i>type_constrain.txt</i> file who constrain the relat
 </tbody>
 </table>
 </div>
-
-
-
-<div id="outline-container-sec-5-2-1" class="outline-4">
-<h4 id="sec-5-2-1"><span class="section-number-4">5.2.1</span> Convert BabelNet Synset id to pure number id</h4>
 </div>
-</div>
+
+
 
 <div id="outline-container-sec-5-3" class="outline-3">
 <h3 id="sec-5-3"><span class="section-number-3">5.3</span> TransE + RV15M</h3>
@@ -1348,12 +1361,252 @@ But we noticed there is a <i>type_constrain.txt</i> file who constrain the relat
 </tbody>
 </table>
 </div>
+
+
+<div id="outline-container-sec-5-3-1" class="outline-4">
+<h4 id="sec-5-3-1"><span class="section-number-4">5.3.1</span> TransE + RV15M with the relation simplified in test. (if r&lt;=10<sup>5</sup> then r =0)</h4>
+<div class="outline-text-4" id="text-5-3-1">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="left" />
+
+<col  class="right" />
+
+<col  class="right" />
+
+<col  class="right" />
+
+<col  class="right" />
+
+<col  class="right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="left">metric:</th>
+<th scope="col" class="right">MRR</th>
+<th scope="col" class="right">MR</th>
+<th scope="col" class="right">hit@10</th>
+<th scope="col" class="right">hit@3</th>
+<th scope="col" class="right">hit@1</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="left">l(raw):</td>
+<td class="right">0.002610</td>
+<td class="right">453522.687500</td>
+<td class="right">0.005800</td>
+<td class="right">0.002600</td>
+<td class="right">0.000200</td>
+</tr>
+
+<tr>
+<td class="left">r(raw):</td>
+<td class="right">0.024884</td>
+<td class="right">285784.156250</td>
+<td class="right">0.051600</td>
+<td class="right">0.026700</td>
+<td class="right">0.009800</td>
+</tr>
+
+<tr>
+<td class="left">averaged(raw):</td>
+<td class="right">0.013747</td>
+<td class="right">369653.437500</td>
+<td class="right">0.028700</td>
+<td class="right">0.014650</td>
+<td class="right">0.005000</td>
+</tr>
+
+<tr>
+<td class="left">&#xa0;</td>
+<td class="right">&#xa0;</td>
+<td class="right">&#xa0;</td>
+<td class="right">&#xa0;</td>
+<td class="right">&#xa0;</td>
+<td class="right">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="left">l(filter):</td>
+<td class="right">0.002645</td>
+<td class="right">453494.312500</td>
+<td class="right">0.005800</td>
+<td class="right">0.002800</td>
+<td class="right">0.000200</td>
+</tr>
+
+<tr>
+<td class="left">r(filter):</td>
+<td class="right">0.026511</td>
+<td class="right">285609.281250</td>
+<td class="right">0.053000</td>
+<td class="right">0.028500</td>
+<td class="right">0.011300</td>
+</tr>
+
+<tr>
+<td class="left">averaged(filter):</td>
+<td class="right">0.014578</td>
+<td class="right">369551.812500</td>
+<td class="right">0.029400</td>
+<td class="right">0.015650</td>
+<td class="right">0.005750</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+<div id="outline-container-sec-5-3-2" class="outline-4">
+<h4 id="sec-5-3-2"><span class="section-number-4">5.3.2</span> TransE + RV15M Clustering (Test Side)</h4>
+<div class="outline-text-4" id="text-5-3-2">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="left" />
+
+<col  class="right" />
+
+<col  class="right" />
+
+<col  class="right" />
+
+<col  class="right" />
+
+<col  class="right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="left">metric:</th>
+<th scope="col" class="right">MRR</th>
+<th scope="col" class="right">MR</th>
+<th scope="col" class="right">hit@10</th>
+<th scope="col" class="right">hit@3</th>
+<th scope="col" class="right">hit@1</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="left">l(raw):</td>
+<td class="right">0.015679</td>
+<td class="right">392112.156250</td>
+<td class="right">0.024400</td>
+<td class="right">0.015500</td>
+<td class="right">0.010300</td>
+</tr>
+
+<tr>
+<td class="left">r(raw):</td>
+<td class="right">0.012046</td>
+<td class="right">410479.625000</td>
+<td class="right">0.024800</td>
+<td class="right">0.013700</td>
+<td class="right">0.004300</td>
+</tr>
+
+<tr>
+<td class="left">averaged(raw):</td>
+<td class="right">0.013863</td>
+<td class="right">401295.875000</td>
+<td class="right">0.024600</td>
+<td class="right">0.014600</td>
+<td class="right">0.007300</td>
+</tr>
+
+<tr>
+<td class="left">&#xa0;</td>
+<td class="right">&#xa0;</td>
+<td class="right">&#xa0;</td>
+<td class="right">&#xa0;</td>
+<td class="right">&#xa0;</td>
+<td class="right">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="left">l(filter):</td>
+<td class="right">0.016390</td>
+<td class="right">392075.187500</td>
+<td class="right">0.025000</td>
+<td class="right">0.016700</td>
+<td class="right">0.010900</td>
+</tr>
+
+<tr>
+<td class="left">r(filter):</td>
+<td class="right">0.013388</td>
+<td class="right">410315.406250</td>
+<td class="right">0.025700</td>
+<td class="right">0.014800</td>
+<td class="right">0.005800</td>
+</tr>
+
+<tr>
+<td class="left">averaged(filter):</td>
+<td class="right">0.014889</td>
+<td class="right">401195.312500</td>
+<td class="right">0.025350</td>
+<td class="right">0.015750</td>
+<td class="right">0.008350</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-sec-6" class="outline-2">
+<h2 id="sec-6"><span class="section-number-2">6</span> Related work</h2>
+<div class="outline-text-2" id="text-6">
+</div><div id="outline-container-sec-6-1" class="outline-3">
+<h3 id="sec-6-1"><span class="section-number-3">6.1</span> Convert BabelNet Synset id to pure number id</h3>
+<div class="outline-text-3" id="text-6-1">
+<p>
+Source code: <a href="./bntoid.py">./bntoid.py</a>
+</p>
+
+<p>
+Notes: 
+</p>
+<ul class="org-ul">
+<li>In OpenKE, we have to set pure number id for all the entities and relations. 
+</li>
+<li>Even we don't apply any constrain to the relations, the file <i>type_constrain.txt</i> is still needed and can't be blank.
+</li>
+<li>The train, test and valid file format is (e1, e2, rel)
+</li>
+</ul>
+
+<p>
+For the details: <a href="https://github.com/thunlp/OpenKE#data">OpenKE#Data</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-6-2" class="outline-3">
+<h3 id="sec-6-2"><span class="section-number-3">6.2</span> OpenKE regroup relations in test</h3>
+</div>
+
+
+<div id="outline-container-sec-6-3" class="outline-3">
+<h3 id="sec-6-3"><span class="section-number-3">6.3</span> Relation cluster: Convert the relation name set to relation id set</h3>
+<div class="outline-text-3" id="text-6-3">
+<p>
+Data source: <a href="./clusters/Reverb-15M_train_clusters.json">./clusters/Reverb-15M_train_clusters.json</a>
+</p>
+</div>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Jason Wu</p>
-<p class="date">Created: 2018-05-11 Fri 09:53</p>
+<p class="date">Created: 2018-05-22 Tue 10:19</p>
 <p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 25.3.1 (<a href="http://orgmode.org">Org</a> mode 8.2.10)</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>

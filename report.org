@@ -111,6 +111,7 @@ But we noticed there is a [[type_constrain.txt]] file who constrain the relation
 | l(raw):           | 0.195751 | 346.692627 | 0.430668 | 0.216824 | 0.092262 |
 | r(raw):           | 0.217857 | 279.881104 | 0.472161 | 0.239949 | 0.105940 |
 | averaged(raw):    | 0.206804 | 313.286865 | 0.451414 | 0.228386 | 0.099101 |
+|                   |          |            |          |          |          |
 | l(filter):        | 0.413781 | 157.688263 | 0.699193 | 0.495624 | 0.267542 |
 | r(filter):        | 0.432955 | 162.264877 | 0.724247 | 0.517276 | 0.283439 |
 | averaged(filter): | 0.423368 | 159.976562 | 0.711720 | 0.506450 | 0.275491 |
@@ -174,8 +175,6 @@ But we noticed there is a [[type_constrain.txt]] file who constrain the relation
   
 
 
-*** Convert BabelNet Synset id to pure number id
-
 ** TransE + RV15M
 |          | Time     |
 |----------+----------|
@@ -192,3 +191,50 @@ But we noticed there is a [[type_constrain.txt]] file who constrain the relation
 | l(filter):        | 0.027981 | 304682.968750 | 0.047100 | 0.030800 | 0.015700 |
 | r(filter):        | 0.026511 | 285609.281250 | 0.053000 | 0.028500 | 0.011300 |
 | averaged(filter): | 0.027246 | 295146.125000 | 0.050050 | 0.029650 | 0.013500 |
+
+
+*** TransE + RV15M with the relation simplified in test. (if r<=10^5 then r =0)
+
+| metric:           |      MRR |            MR |   hit@10 |    hit@3 |    hit@1 |
+|-------------------+----------+---------------+----------+----------+----------|
+| l(raw):           | 0.002610 | 453522.687500 | 0.005800 | 0.002600 | 0.000200 |
+| r(raw):           | 0.024884 | 285784.156250 | 0.051600 | 0.026700 | 0.009800 |
+| averaged(raw):    | 0.013747 | 369653.437500 | 0.028700 | 0.014650 | 0.005000 |
+|                   |          |               |          |          |          |
+| l(filter):        | 0.002645 | 453494.312500 | 0.005800 | 0.002800 | 0.000200 |
+| r(filter):        | 0.026511 | 285609.281250 | 0.053000 | 0.028500 | 0.011300 |
+| averaged(filter): | 0.014578 | 369551.812500 | 0.029400 | 0.015650 | 0.005750 |
+
+
+*** TransE + RV15M Clustering (Test Side)
+
+| metric:           |      MRR |            MR |   hit@10 |    hit@3 |    hit@1 |
+|-------------------+----------+---------------+----------+----------+----------|
+| l(raw):           | 0.015679 | 392112.156250 | 0.024400 | 0.015500 | 0.010300 |
+| r(raw):           | 0.012046 | 410479.625000 | 0.024800 | 0.013700 | 0.004300 |
+| averaged(raw):    | 0.013863 | 401295.875000 | 0.024600 | 0.014600 | 0.007300 |
+|                   |          |               |          |          |          |
+| l(filter):        | 0.016390 | 392075.187500 | 0.025000 | 0.016700 | 0.010900 |
+| r(filter):        | 0.013388 | 410315.406250 | 0.025700 | 0.014800 | 0.005800 |
+| averaged(filter): | 0.014889 | 401195.312500 | 0.025350 | 0.015750 | 0.008350 |
+
+
+* Related work
+
+** Convert BabelNet Synset id to pure number id
+Source code: [[./bntoid.py]]
+
+Notes: 
+- In OpenKE, we have to set pure number id for all the entities and relations. 
+- Even we don't apply any constrain to the relations, the file [[type_constrain.txt]] is still needed and can't be blank.
+- The train, test and valid file format is (e1, e2, rel)
+
+For the details: [[https://github.com/thunlp/OpenKE#data][OpenKE#Data]]
+
+** OpenKE regroup relations in test
+   
+
+** Relation cluster: Convert the relation name set to relation id set
+
+Data source: [[./clusters/Reverb-15M_train_clusters.json]]
+
