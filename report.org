@@ -218,6 +218,35 @@ But we noticed there is a [[type_constrain.txt]] file who constrain the relation
 | r(filter):        | 0.013388 | 410315.406250 | 0.025700 | 0.014800 | 0.005800 |
 | averaged(filter): | 0.014889 | 401195.312500 | 0.025350 | 0.015750 | 0.008350 |
 
+**** Based on the file [[./clusters/20180521/ranks.csv]], we found:
+- There are 6424 examples in 10000 test are affected by the clustering. 
+- There are 5219 different relations before and 1293 after.
+- There are 1973 examples with an improved performance (1973/6424 = 30.7% ). 
+
+
+**** Improvement Ratio group by clustered relation
+#+CAPTION: Top Ratios which are with the total amount >= 30.
+| No.  | Relation # | Total Amount | Imp Amount |    Ratio |
+|------+------------+--------------+------------+----------|
+|    0 |         40 |           76 |         38 | 0.500000 |
+|    1 |         22 |           31 |         13 | 0.419355 |
+|    2 |         19 |           36 |         15 | 0.416667 |
+|    3 |        194 |           31 |         12 | 0.387097 |
+|    4 |         54 |           58 |         22 | 0.379310 |
+|    5 |         12 |           61 |         23 | 0.377049 |
+|    6 |          1 |           43 |         14 | 0.325581 |
+|    7 |          9 |           34 |         11 | 0.323529 |
+|    8 |        168 |           38 |         12 | 0.315789 |
+|    9 |        111 |           40 |         12 | 0.300000 |
+|   10 |          0 |          284 |         85 | 0.299296 |
+|   11 |          5 |           91 |         26 | 0.285714 |
+|   12 |          6 |           35 |         10 | 0.285714 |
+|   13 |         43 |           35 |         10 | 0.285714 |
+|   14 |          2 |           36 |         10 | 0.277778 |
+|   15 |        570 |           33 |          8 | 0.242424 |
+|   16 |         82 |           48 |         11 | 0.229167 |
+|   17 |        631 |           32 |          3 | 0.093750 |
+
 
 * Related work
 

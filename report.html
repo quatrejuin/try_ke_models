@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
 <title>report</title>
-<!-- 2018-05-22 Tue 10:19 -->
+<!-- 2018-05-22 Tue 15:50 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="generator" content="Org-mode" />
 <meta  name="author" content="Jason Wu" />
@@ -1556,6 +1556,192 @@ But we noticed there is a <i>type_constrain.txt</i> file who constrain the relat
 </tbody>
 </table>
 </div>
+
+<ol class="org-ol"><li><a id="sec-5-3-2-1" name="sec-5-3-2-1"></a>Based on the file <a href="./clusters/20180521/ranks.csv">./clusters/20180521/ranks.csv</a>, we found:<br  /><div class="outline-text-5" id="text-5-3-2-1">
+<ul class="org-ul">
+<li>There are 6424 examples in 10000 test are affected by the clustering. 
+</li>
+<li>There are 5219 different relations before and 1293 after.
+</li>
+<li>There are 1973 examples with an improved performance (1973/6424 = 30.7% ). 
+</li>
+</ul>
+</div>
+</li>
+
+
+<li><a id="sec-5-3-2-2" name="sec-5-3-2-2"></a>Improvement Ratio group by clustered relation<br  /><div class="outline-text-5" id="text-5-3-2-2">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<caption class="t-above"><span class="table-number">Table 1:</span> Top Ratios which are with the total amount &gt;= 30.</caption>
+
+<colgroup>
+<col  class="right" />
+
+<col  class="right" />
+
+<col  class="right" />
+
+<col  class="right" />
+
+<col  class="right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="right">No.</th>
+<th scope="col" class="right">Relation #</th>
+<th scope="col" class="right">Total Amount</th>
+<th scope="col" class="right">Imp Amount</th>
+<th scope="col" class="right">Ratio</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="right">0</td>
+<td class="right">40</td>
+<td class="right">76</td>
+<td class="right">38</td>
+<td class="right">0.500000</td>
+</tr>
+
+<tr>
+<td class="right">1</td>
+<td class="right">22</td>
+<td class="right">31</td>
+<td class="right">13</td>
+<td class="right">0.419355</td>
+</tr>
+
+<tr>
+<td class="right">2</td>
+<td class="right">19</td>
+<td class="right">36</td>
+<td class="right">15</td>
+<td class="right">0.416667</td>
+</tr>
+
+<tr>
+<td class="right">3</td>
+<td class="right">194</td>
+<td class="right">31</td>
+<td class="right">12</td>
+<td class="right">0.387097</td>
+</tr>
+
+<tr>
+<td class="right">4</td>
+<td class="right">54</td>
+<td class="right">58</td>
+<td class="right">22</td>
+<td class="right">0.379310</td>
+</tr>
+
+<tr>
+<td class="right">5</td>
+<td class="right">12</td>
+<td class="right">61</td>
+<td class="right">23</td>
+<td class="right">0.377049</td>
+</tr>
+
+<tr>
+<td class="right">6</td>
+<td class="right">1</td>
+<td class="right">43</td>
+<td class="right">14</td>
+<td class="right">0.325581</td>
+</tr>
+
+<tr>
+<td class="right">7</td>
+<td class="right">9</td>
+<td class="right">34</td>
+<td class="right">11</td>
+<td class="right">0.323529</td>
+</tr>
+
+<tr>
+<td class="right">8</td>
+<td class="right">168</td>
+<td class="right">38</td>
+<td class="right">12</td>
+<td class="right">0.315789</td>
+</tr>
+
+<tr>
+<td class="right">9</td>
+<td class="right">111</td>
+<td class="right">40</td>
+<td class="right">12</td>
+<td class="right">0.300000</td>
+</tr>
+
+<tr>
+<td class="right">10</td>
+<td class="right">0</td>
+<td class="right">284</td>
+<td class="right">85</td>
+<td class="right">0.299296</td>
+</tr>
+
+<tr>
+<td class="right">11</td>
+<td class="right">5</td>
+<td class="right">91</td>
+<td class="right">26</td>
+<td class="right">0.285714</td>
+</tr>
+
+<tr>
+<td class="right">12</td>
+<td class="right">6</td>
+<td class="right">35</td>
+<td class="right">10</td>
+<td class="right">0.285714</td>
+</tr>
+
+<tr>
+<td class="right">13</td>
+<td class="right">43</td>
+<td class="right">35</td>
+<td class="right">10</td>
+<td class="right">0.285714</td>
+</tr>
+
+<tr>
+<td class="right">14</td>
+<td class="right">2</td>
+<td class="right">36</td>
+<td class="right">10</td>
+<td class="right">0.277778</td>
+</tr>
+
+<tr>
+<td class="right">15</td>
+<td class="right">570</td>
+<td class="right">33</td>
+<td class="right">8</td>
+<td class="right">0.242424</td>
+</tr>
+
+<tr>
+<td class="right">16</td>
+<td class="right">82</td>
+<td class="right">48</td>
+<td class="right">11</td>
+<td class="right">0.229167</td>
+</tr>
+
+<tr>
+<td class="right">17</td>
+<td class="right">631</td>
+<td class="right">32</td>
+<td class="right">3</td>
+<td class="right">0.093750</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li></ol>
 </div>
 </div>
 </div>
@@ -1606,7 +1792,7 @@ Data source: <a href="./clusters/Reverb-15M_train_clusters.json">./clusters/Reve
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Jason Wu</p>
-<p class="date">Created: 2018-05-22 Tue 10:19</p>
+<p class="date">Created: 2018-05-22 Tue 15:50</p>
 <p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 25.3.1 (<a href="http://orgmode.org">Org</a> mode 8.2.10)</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
